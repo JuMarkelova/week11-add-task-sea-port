@@ -23,8 +23,16 @@ public class Dock {
         return this.port;
     }
 
+    public void setPort(Port port) {
+        this.port = port;
+    }
+
     @Override
     public String toString() {
-        return String.format("Dock | id: %d | port: %s", this.id, this.port.getName());
+        if (this.port == null) {
+            return String.format("Dock | id: %d | port: undefined", this.id);
+        } else {
+            return String.format("Dock | id: %d | port: %s", this.id, this.port.getName());
+        }
     }
 }

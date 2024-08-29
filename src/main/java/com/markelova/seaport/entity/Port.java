@@ -17,6 +17,7 @@ public class Port {
     public Port(String name, List<Dock> docks) {
         this.name = name;
         this.docks = docks;
+        setDocksPort(docks);
     }
 
     public String getName() {
@@ -33,10 +34,18 @@ public class Port {
 
     public void setDocks(List<Dock> docks) {
         this.docks = docks;
+        setDocksPort(docks);
     }
 
     public void addDock(Dock dock) {
         this.docks.add(dock);
+        dock.setPort(this);
+    }
+
+    private void setDocksPort(List<Dock> docks) {
+        docks.stream()
+                .filter(it -> it.getPort() == null)
+                .forEach(it -> it.setPort(this));
     }
 
     @Override
