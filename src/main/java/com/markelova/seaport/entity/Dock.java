@@ -4,6 +4,7 @@ public class Dock {
     private static Long count = 0L;
     private final Long id;
     private Port port;
+    private Warehouse warehouse;
 
     public Dock() {
         this.id = ++count;
@@ -27,12 +28,22 @@ public class Dock {
         this.port = port;
     }
 
+    public Warehouse getWarehouse() {
+        return this.warehouse;
+    }
+
+    public void setWarehouse(Warehouse warehouse) {
+        this.warehouse = warehouse;
+    }
+
     @Override
     public String toString() {
         if (this.port == null) {
-            return String.format("Dock | id: %d | port: undefined", this.id);
+            return String.format("\nDock | id: %d | port: undefined | has warehouse: %b",
+                    this.id, this.warehouse != null);
         } else {
-            return String.format("Dock | id: %d | port: %s", this.id, this.port.getName());
+            return String.format("\nDock | id: %d | port: %s | has warehouse: %b",
+                    this.id, this.port.getName(), this.warehouse != null);
         }
     }
 }
