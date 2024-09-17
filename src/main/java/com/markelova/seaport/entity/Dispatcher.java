@@ -2,7 +2,7 @@ package com.markelova.seaport.entity;
 
 public class Dispatcher {
 
-    Dispatcher() {
+    public Dispatcher() {
     }
 
     public void print(Object object) {

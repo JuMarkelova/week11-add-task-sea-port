@@ -8,13 +8,13 @@ public class Ship implements Runnable {
     private int capacity;
     private int occupancy;
 
-    Ship() {
+    public Ship() {
         this.ID = ++count;
         this.occupancy = 0;
         this.capacity = GeneratorInt.generateRandomInt(200, 500);
     }
 
-    Ship(int capacity) {
+    public Ship(int capacity) {
         this.ID = ++count;
         this.occupancy = 0;
         this.capacity = capacity;
@@ -48,7 +48,7 @@ public class Ship implements Runnable {
 
     @Override
     public String toString() {
-        return String.format("Ship | ID: %d | capacity: %d | occupancy: %d", ID, capacity, occupancy);
+        return String.format("Ship | ID: %-3d | capacity: %d | occupancy: %d", ID, capacity, occupancy);
     }
 
     @Override
